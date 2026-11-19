@@ -1,39 +1,21 @@
 # NIFTY 50 Stock Market Analysis
 
-Python analysis of NIFTY 50 stocks: daily returns, moving averages, volatility, and a Banking vs IT sector comparison, with Matplotlib and Seaborn charts.
+A Python project that analyses NIFTY 50 stocks using daily price data from Yahoo Finance. It calculates daily returns, moving averages, and volatility, and compares sectors such as Banking and IT. The results are shown in tables and charts.
 
-## Setup
+## Tools used
+Python, Pandas, yfinance, Matplotlib, Seaborn
 
+## Project files
+- `main.py`: runs the full analysis
+- `data_loader.py`: downloads the price data
+- `cleaning.py`: cleans the data
+- `analysis.py`: calculates returns, moving averages, and volatility
+- `visualize.py`: creates the charts
+- `FINDINGS.md`: key findings and caveats
+
+## How to run
 ```bash
-python -m venv venv
-source venv/bin/activate          # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-```
-
-## Get the data
-
-Either download from Yahoo Finance (needs internet):
-
-```bash
 python main.py --refresh
+python -m pytest
 ```
-
-or use your own CSV files: put one per ticker in `my_data/` (with `Date` and `Close` columns), then run `python build_dataset.py` and `python main.py`.
-
-## Run
-
-```bash
-python main.py       # uses cached data if present
-python -m pytest     # run the tests
-```
-
-## Outputs
-
-- `outputs/sector_summary.csv`, `outputs/stock_summary.csv`: performance tables
-- `outputs/rolling_volatility.csv`: 21-day annualised volatility per stock
-- `outputs/figures/`: charts
-- `FINDINGS.md`: write-up template to fill in with your results
-
-## Configuration
-
-Edit `config.py` to change the date range, sector membership, moving-average windows, or the risk-free rate.
